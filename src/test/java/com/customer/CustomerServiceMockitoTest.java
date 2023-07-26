@@ -15,6 +15,24 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+/**
+ * This class contains unit tests for the CustomerService using Mockito framework.
+ * It tests the business logic and functionality of the CustomerService methods in isolation.
+ *
+ * The CustomerServiceMockitoTest class uses Mockito to mock dependencies, such as the
+ * CustomerRepository or other external services, to focus solely on testing the service layer.
+ *
+ * Test Cases:
+ * - Test all customers retrieval and verify the expected customer objects are returned.
+ * - Test customer retrieval by ID and verify the expected customer object is returned.
+ * - Test customer creation and verify that the CustomerRepository save method is called.
+ * - Test customer update and verify that the CustomerRepository save method is called.
+ * - Test customer deletion and verify that the CustomerRepository delete method is called.
+ *
+ * Usage:
+ * This class should be executed as a JUnit test to validate the correctness of the
+ * CustomerService implementation using Mockito mocks for dependency isolation.
+ */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(classes = {CustomerServiceMockitoTest.class})
 public class CustomerServiceMockitoTest {
@@ -26,6 +44,10 @@ public class CustomerServiceMockitoTest {
     CustomerService customerSer;
 
 
+    /**
+     * Test the getCustomers method of CustomerService.
+     * Verify that all the customer objects are returned.
+     */
     @Test
     @Order(1)
     public void test_getCustomers(){
@@ -41,6 +63,10 @@ public class CustomerServiceMockitoTest {
         assertEquals(2, customerSer.getCustomers().size());
     }
 
+    /**
+     * Test the getCustomerById method of CustomerService.
+     * Verify that the correct customer object is returned for a given customer ID.
+     */
     @Test
     @Order(2)
     public void test_getCustomerById(){
@@ -58,6 +84,10 @@ public class CustomerServiceMockitoTest {
         assertEquals(id, customerSer.getCustomerById(id).getCustomerId());
     }
 
+    /**
+     * Test the createCustomer method of CustomerService.
+     * Verify that the customer object is saved using the CustomerRepository save method.
+     */
     @Test
     @Order(3)
     public void test_createCustomer(){
@@ -71,6 +101,10 @@ public class CustomerServiceMockitoTest {
         assertEquals(customer1, customerSer.createCustomer(customer1));
     }
 
+    /**
+     * Test the updateCustomer method of CustomerService.
+     * Verify that the customer object is updated using the CustomerRepository save method.
+     */
     @Test
     @Order(4)
     public void test_updateCustomer(){
@@ -84,6 +118,10 @@ public class CustomerServiceMockitoTest {
         assertEquals(customer1, customerSer.updateCustomer(customer1));
     }
 
+    /**
+     * Test the deleteCustomer method of CustomerService.
+     * Verify that the correct customer object is deleted for a given customer ID.
+     */
     @Test
     @Order(5)
     public void test_deleteCustomer(){

@@ -8,6 +8,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * This class represents a service that handles Customer-related operations in the application.
+ * It provides functionality to Create, Read, Update, and Delete Customer information in the database.
+ * This service communicates with the CustomerRepository to perform CRUD operations on Customer_db entities.
+ *
+ * Usage:
+ * The CustomerService should be autowired into other components that require Customer-related functionalities.
+ * For example, in a CustomerController, you can use CustomerService methods to retrieve Customer information.
+ */
+
+
 
 @Service
 public class CustomerService {
@@ -15,11 +26,22 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRep;
 
+    /**
+     * Get customer information by the specified customer ID.
+     *
+     * @return All the Customer objects.
+     */
     public List<Customer> getCustomers(){
        return customerRep.findAll();
     }
 
 
+    /**
+     * Get customer information by the specified customer ID.
+     *
+     * @param Id The ID of the customer to retrieve.
+     * @return The Customer object corresponding to the given ID.
+     */
     public Customer getCustomerById(int Id){
         List<Customer> customers = customerRep.findAll();
         Customer customer = null;
@@ -31,20 +53,33 @@ public class CustomerService {
         return customer;
     }
 
+    /**
+     * Create a new customer with the provided customer object.
+     *
+     * @param customer The Customer object representing the customer to be created.
+     * @return The newly created customer object with a generated ID.
+     */
     public Customer createCustomer(Customer customer){
         return customerRep.save(customer);
     }
 
-    public int getMaxId(){
-
-        return customerRep.findAll().size()+1;
-    }
-
+    /**
+     * Update a new customer with the provided customer object.
+     *
+     * @param customer The Customer object representing the customer to be updated.
+     * @return The updated Customer object with a generated ID.
+     */
     public Customer updateCustomer(Customer customer){
         return customerRep.save(customer);
     }
 
 
+    /**
+     * Delete a customer with the provided customerId.
+     *
+     * @param Id The ID of the customer to delete.
+     * @return The deleted customerId.
+     */
     public AddResponse deleteCustomer(int Id){
             customerRep.deleteById(Id);
             AddResponse res = new AddResponse();
