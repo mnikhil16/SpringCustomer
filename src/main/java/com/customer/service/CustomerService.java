@@ -5,7 +5,6 @@ import com.customer.repository.CustomerRepository;
 import com.customer.beans.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -15,10 +14,7 @@ import java.util.List;
  *
  * Usage:
  * The CustomerService should be autowired into other components that require Customer-related functionalities.
- * For example, in a CustomerController, you can use CustomerService methods to retrieve Customer information.
  */
-
-
 
 @Service
 public class CustomerService {
@@ -27,7 +23,7 @@ public class CustomerService {
     CustomerRepository customerRep;
 
     /**
-     * Get customer information by the specified customer ID.
+     * Get all the customer information.
      *
      * @return All the Customer objects.
      */
@@ -67,7 +63,7 @@ public class CustomerService {
      * Update a new customer with the provided customer object.
      *
      * @param customer The Customer object representing the customer to be updated.
-     * @return The updated Customer object with a generated ID.
+     * @return The updated Customer object.
      */
     public Customer updateCustomer(Customer customer){
         return customerRep.save(customer);
