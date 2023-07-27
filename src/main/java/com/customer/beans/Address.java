@@ -17,7 +17,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int id;
+    Integer id;
     @Column(name = "dno")
     String D_No;
     @Column(name = "street")
@@ -27,7 +27,7 @@ public class Address {
     @Column(name = "state")
     String state;
     @Column(name = "pin_code")
-    int pinCode;
+    Integer pinCode;
 
     public Address() {
     }
@@ -41,7 +41,7 @@ public class Address {
      * @param state      The state name.
      * @param pinCode    The pin code or ZIP code.
      */
-    public Address(int id, String d_No, String street, String city, String state, int pinCode) {
+    public Address(Integer id, String d_No, String street, String city, String state, Integer pinCode) {
         this.id = id;
         D_No = d_No;
         this.street = street;
@@ -55,7 +55,7 @@ public class Address {
      *
      * @return The id as an int.
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -64,7 +64,7 @@ public class Address {
      *
      * @param id The id to set.
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -145,7 +145,7 @@ public class Address {
      *
      * @return The pin code as an int.
      */
-    public int getPinCode() {
+    public Integer getPinCode() {
         return pinCode;
     }
 
@@ -154,7 +154,7 @@ public class Address {
      *
      * @param pinCode The pin code to set.
      */
-    public void setPinCode(int pinCode) {
+    public void setPinCode(Integer pinCode) {
         this.pinCode = pinCode;
     }
 }

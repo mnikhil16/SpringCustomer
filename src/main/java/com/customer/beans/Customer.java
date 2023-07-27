@@ -15,7 +15,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
-    int customerId;
+    Integer customerId;
     @Column(name = "first_name")
     String firstName;
 
@@ -29,7 +29,7 @@ public class Customer {
     String dateOfBirth;
 
     @Column(name = "age")
-    int age;
+    Integer age;
 
     @Column(name = "email")
     String email;
@@ -57,7 +57,7 @@ public class Customer {
      * @param phoneNumber   The phone number of the customer.
      * @param address       The Address object representing the customer's address.
      */
-    public Customer(int customerId, String firstName, String lastName, String displayName, String dateOfBirth, int age, String email, String phoneNumber, Address address) {
+    public Customer(Integer customerId, String firstName, String lastName, String displayName, String dateOfBirth, Integer age, String email, String phoneNumber, Address address) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -74,7 +74,7 @@ public class Customer {
      *
      * @return The customer's id as an int.
      */
-    public int getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
@@ -83,7 +83,7 @@ public class Customer {
      *
      * @param customerId The id of the customer to set.
      */
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
 
@@ -164,7 +164,7 @@ public class Customer {
      *
      * @return The customer's age as an int.
      */
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -173,7 +173,7 @@ public class Customer {
      *
      * @param age The age of the customer to set.
      */
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

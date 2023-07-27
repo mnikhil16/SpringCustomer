@@ -16,21 +16,21 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int id;
+    Integer id;
 
     @Column(name = "quantity")
-    int quantity;
+    Integer quantity;
 
     @Column(name = "last_stock_date")
     String lastStockDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @Column(name = "item_id")
-    int itemId;
+    Integer itemId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @Column(name = "store_id")
-    int storeId;
+    Integer storeId;
 
     /**
      * Parameterized constructor to create a Customer object with specified details.
@@ -41,7 +41,7 @@ public class Inventory {
      * @param itemId         The id's of the items present in the inventory.
      * @param storeId        The id's of the stores that are using the inventory to store the items.
      */
-    public Inventory(int id, int quantity, String lastStockDate, int itemId, int storeId) {
+    public Inventory(Integer id, Integer quantity, String lastStockDate, Integer itemId, Integer storeId) {
         this.id = id;
         this.quantity = quantity;
         this.lastStockDate = lastStockDate;
@@ -49,19 +49,19 @@ public class Inventory {
         this.storeId = storeId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -73,19 +73,19 @@ public class Inventory {
         this.lastStockDate = lastStockDate;
     }
 
-    public int getItemId() {
+    public Integer getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(Integer itemId) {
         this.itemId = itemId;
     }
 
-    public int getStoreId() {
+    public Integer getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(int storeId) {
+    public void setStoreId(Integer storeId) {
         this.storeId = storeId;
     }
 }

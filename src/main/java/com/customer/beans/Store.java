@@ -15,22 +15,22 @@ public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int id;
+    Integer id;
 
     @Column(name = "branch")
     String branch;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @Column(name = "item_id")
-    int itemId;
+    Integer itemId;
 
     @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "customer_id")
-    int customerId;
+    Integer customerId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "address_id")
-    int addressId;
+    Integer addressId;
 
     /**
      * Parameterized constructor to create a Customer object with specified details.
@@ -41,7 +41,7 @@ public class Store {
      * @param customerId    The id of the customer who purchases items in the store.
      * @param addressId     The address of the store.
      */
-    public Store(int id, String branch, int itemId, int customerId, int addressId) {
+    public Store(Integer id, String branch, Integer itemId, Integer customerId, Integer addressId) {
         this.id = id;
         this.branch = branch;
         this.itemId = itemId;
@@ -49,11 +49,11 @@ public class Store {
         this.addressId = addressId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,27 +65,27 @@ public class Store {
         this.branch = branch;
     }
 
-    public int getItemId() {
+    public Integer getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(Integer itemId) {
         this.itemId = itemId;
     }
 
-    public int getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
 
-    public int getAddressId() {
+    public Integer getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(int addressId) {
+    public void setAddressId(Integer addressId) {
         this.addressId = addressId;
     }
 }

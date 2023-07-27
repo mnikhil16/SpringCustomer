@@ -15,7 +15,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int id;
+    Integer id;
 
     @Column(name = "name")
     String name;
@@ -27,10 +27,10 @@ public class Item {
     String brand;
 
     @Column(name = "price")
-    double price;
+    Double price;
 
     @Column(name = "items_left")
-    int itemsLeft;
+    Integer itemsLeft;
 
     @Column(name = "mfd")
     String manufacturedDate;
@@ -54,7 +54,7 @@ public class Item {
      * @param expiryDate       The expiryDate of an item.
      * @param description      The description of an item.
      */
-    public Item(int id, String name, String type, String brand, double price, int itemsLeft, String manufacturedDate, String expiryDate, String description) {
+    public Item(Integer id, String name, String type, String brand, Double price, Integer itemsLeft, String manufacturedDate, String expiryDate, String description) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -66,11 +66,11 @@ public class Item {
         this.description = description;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -98,19 +98,19 @@ public class Item {
         this.brand = brand;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getItemsLeft() {
+    public Integer getItemsLeft() {
         return itemsLeft;
     }
 
-    public void setItemsLeft(int itemsLeft) {
+    public void setItemsLeft(Integer itemsLeft) {
         this.itemsLeft = itemsLeft;
     }
 
