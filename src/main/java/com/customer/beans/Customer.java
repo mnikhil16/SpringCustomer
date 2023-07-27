@@ -8,7 +8,6 @@ import jakarta.persistence.*;
  *
  * Usage:
  * The Customer class can be used to store and retrieve information about a customer in the system.
- * It typically contains customer-specific data such as id, first_name, last_name, display_name, dob, age, email, phone number and address.
  */
 @Entity
 @Table(name = "customer")

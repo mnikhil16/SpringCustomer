@@ -5,10 +5,11 @@ import jakarta.persistence.*;
 /**
  * This class represents an Address object with details such as id, D_no, street, city, state and pin code.
  * It is a Java bean class with getters, setters, and a parameterized constructor for easy data access.
- *
  * Usage:
  * The Address class can be used to store and retrieve address information of a customer or any entity.
  * It is commonly used as a property of the Customer class to represent a customer's address.
+ * It is commonly used as a property of the Store class to represent a store's address.
+ * It is commonly used as a property of the Inventory class to represent an inventory's address.
  */
 @Entity
 @Table(name = "address")
