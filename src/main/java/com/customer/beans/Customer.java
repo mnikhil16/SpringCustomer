@@ -3,7 +3,7 @@ package com.customer.beans;
 import jakarta.persistence.*;
 
 /**
- * This class represents a Customer object with details like id, first_name, last_name, display_name, dob, age, email, phone number and address.
+ * This class represents a Customer object with details like storeId, first_name, last_name, display_name, dob, age, email, phone number and address.
  * It is a Java bean class with getters, setters, and a parameterized constructor for easy data access.
  *
  * Usage:
@@ -47,7 +47,7 @@ public class Customer {
     /**
      * Parameterized constructor to create a Customer object with specified details.
      *
-     * @param customerId    The id of the customer.
+     * @param customerId    The storeId of the customer.
      * @param firstName     The first name of the customer.
      * @param lastName      The last name of the customer.
      * @param displayName   The display name of the customer.
@@ -70,18 +70,18 @@ public class Customer {
     }
 
     /**
-     * Get the id of the customer.
+     * Get the storeId of the customer.
      *
-     * @return The customer's id as an int.
+     * @return The customer's storeId as an int.
      */
     public Integer getCustomerId() {
         return customerId;
     }
 
     /**
-     * Set the id of the customer.
+     * Set the storeId of the customer.
      *
-     * @param customerId The id of the customer to set.
+     * @param customerId The storeId of the customer to set.
      */
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;

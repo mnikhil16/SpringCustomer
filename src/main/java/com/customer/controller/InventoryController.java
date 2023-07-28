@@ -1,7 +1,7 @@
 package com.customer.controller;
 
-import com.customer.beans.Inventory;
-import com.customer.service.InventoryService;
+import com.customer.beans.StockInventory;
+import com.customer.service.StockInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 /**
- * This class represents the RESTful controller for managing Inventory-related endpoints.
- * It handles HTTP requests for creating, reading, updating, and deleting Inventory information.
+ * This class represents the RESTful controller for managing StockInventory-related endpoints.
+ * It handles HTTP requests for creating, reading, updating, and deleting StockInventory information.
  * The InventoryController maps incoming HTTP requests to appropriate methods to process them.
- * It interacts with the InventoryService to perform operations on inventory data.
+ * It interacts with the StockInventoryService to perform operations on inventory data.
  * Endpoints:
  * - GET /inventories: Retrieves all the inventories' information.
  * - GET /getInventoryById/{inventoryId}: Retrieve inventory information by the specified ID.
@@ -27,15 +27,15 @@ import java.util.List;
 public class InventoryController {
 
     @Autowired
-    InventoryService service;
+    StockInventoryService service;
 
     /**
      * Returns all the inventory objects.
-     * URL : "http://localhost8080/inventories"
+     * URL : "http://localhost8080/StockInventories"
      * @return  All inventories as an arrayList of inventory JSON objects.
      */
-    @GetMapping("/Inventories")
-    public List<Inventory> getAllInventories(){
+    @GetMapping("/StockInventories")
+    public List<StockInventory> getAllStockInventories(){
         return service.getInventories();
     }
 
@@ -47,11 +47,11 @@ public class InventoryController {
      * @throws if inventory object not found with given inventoryId.
      */
     @GetMapping("/getInventoryById/{inventoryId}")
-    public ResponseEntity<Inventory> getInventoryById(@PathVariable(value = "inventoryId") int inventoryId) {
+    public ResponseEntity<StockInventory> getInventoryById(@PathVariable(value = "inventoryId") int inventoryId) {
 
         try {
-            Inventory inventory = service.getInventoryById(inventoryId);
-            return new ResponseEntity<Inventory>(inventory, HttpStatus.OK);
+            StockInventory stockInventory = service.getInventoryById(inventoryId);
+            return new ResponseEntity<StockInventory>(stockInventory, HttpStatus.OK);
         }
         catch(Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -59,29 +59,29 @@ public class InventoryController {
     }
 
     /**
-     * Creates the inventory object.
+     * Creates the stockInventory object.
      * URL : "http://localhost8080/createInventory"
-     * @param  inventory object as an input.
-     * @return  inventory JSON object.
+     * @param  stockInventory object as an input.
+     * @return  stockInventory JSON object.
      */
     @PostMapping("/createInventory")
-    public Inventory createInventory(@RequestBody Inventory inventory){
+    public StockInventory createInventory(@RequestBody StockInventory stockInventory){
 
-        return service.createInventory(inventory);
+        return service.createInventory(stockInventory);
     }
 
     /**
-     * Updates the inventory object.
+     * Updates the stockInventory object.
      * URL : "http://localhost8080/updateInventory"
-     * @param  inventory object as an input.
-     * @return ResponseEntity with inventory information if updated, or 404 if not found.
+     * @param  stockInventory object as an input.
+     * @return ResponseEntity with stockInventory information if updated, or 404 if not found.
      * @throws  if customer object not found.
      */
     @PutMapping("/updateInventory")
-    public ResponseEntity<Inventory> updateInventory(@RequestBody Inventory inventory){
+    public ResponseEntity<StockInventory> updateInventory(@RequestBody StockInventory stockInventory){
         try{
-            Inventory updatedInventory = service.updateInventory(inventory);
-            return new ResponseEntity<Inventory>(updatedInventory,HttpStatus.OK);
+            StockInventory updatedStockInventory = service.updateInventory(stockInventory);
+            return new ResponseEntity<StockInventory>(updatedStockInventory,HttpStatus.OK);
         }
         catch(Exception e){
             return new ResponseEntity<>(HttpStatus.CONFLICT);

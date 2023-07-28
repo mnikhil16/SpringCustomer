@@ -3,30 +3,29 @@ package com.customer.beans;
 import jakarta.persistence.*;
 
 /**
- * This class represents a Store object with details like id, branch, item id, customer id, address id.
+ * This class represents a Store object with details like storeId, storeName, branch, company Id, address Id.
  * It is a Java bean class with getters, setters, and a parameterized constructor for easy data access.
  *
  * Usage:
- * The Customer class can be used to store and retrieve information about a customer in the system.
+ * The Store class can be used to store and retrieve information about a store in the system.
  */
 @Entity
 @Table(name = "store")
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    Integer id;
+    @Column(name = "store_id")
+    Integer storeId;
+
+    @Column(name = "storeName")
+    String storeName;
 
     @Column(name = "branch")
     String branch;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @Column(name = "item_id")
-    Integer itemId;
-
     @OneToMany(cascade = CascadeType.ALL)
-    @Column(name = "customer_id")
-    Integer customerId;
+    @Column(name = "company_id")
+    Integer companyId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "address_id")
@@ -35,26 +34,34 @@ public class Store {
     /**
      * Parameterized constructor to create a Customer object with specified details.
      *
-     * @param id            The id of the store.
+     * @param storeId            The storeId of the store.
+     * @param storeName        The name of the store.
      * @param branch        The branch of the store.
-     * @param itemId        The id of the item in the store
-     * @param customerId    The id of the customer who purchases items in the store.
+     * @param companyId    The storeId of the customer who purchases items in the store.
      * @param addressId     The address of the store.
      */
-    public Store(Integer id, String branch, Integer itemId, Integer customerId, Integer addressId) {
-        this.id = id;
+    public Store(Integer storeId, String storeName, String branch, Integer companyId, Integer addressId) {
+        this.storeId = storeId;
+        this.storeName = storeName;
         this.branch = branch;
-        this.itemId = itemId;
-        this.customerId = customerId;
+        this.companyId = companyId;
         this.addressId = addressId;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getStoreId() {
+        return storeId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
     public String getBranch() {
@@ -65,20 +72,12 @@ public class Store {
         this.branch = branch;
     }
 
-    public Integer getItemId() {
-        return itemId;
+    public Integer getCompanyId() {
+        return companyId;
     }
 
-    public void setItemId(Integer itemId) {
-        this.itemId = itemId;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
     }
 
     public Integer getAddressId() {

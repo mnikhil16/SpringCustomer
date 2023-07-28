@@ -1,7 +1,7 @@
 package com.customer.controller;
 
-import com.customer.beans.Item;
-import com.customer.service.ItemService;
+import com.customer.beans.StockItem;
+import com.customer.service.StockItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 /**
- * This class represents the RESTful controller for managing Item-related endpoints.
- * It handles HTTP requests for creating, reading, updating, and deleting Item information.
- * The ItemController maps incoming HTTP requests to appropriate methods to process them.
- * It interacts with the ItemService to perform operations on item data.
+ * This class represents the RESTful controller for managing StockItem-related endpoints.
+ * It handles HTTP requests for creating, reading, updating, and deleting StockItem information.
+ * The StockItemController maps incoming HTTP requests to appropriate methods to process them.
+ * It interacts with the StockItemService to perform operations on item data.
  * Endpoints:
  * - GET /items: Retrieves all the items' information.
  * - GET /getItemById/{itemId}: Retrieve item information by the specified ID.
@@ -20,14 +20,14 @@ import java.util.List;
  * - PUT /updateItem: Update customer information.
  * - DELETE /deleteItemById/{itemId}: Delete the item with the given ID from the system.
  * Usage:
- * The ItemController should be registered with the Spring application context and
+ * The StockItemController should be registered with the Spring application context and
  * automatically handle incoming HTTP requests to the specified endpoints.
  */
 @RestController
-public class ItemController {
+public class StockItemController {
 
     @Autowired
-    ItemService service;
+    StockItemService service;
 
     /**
      * Returns all the customer objects.
@@ -35,23 +35,23 @@ public class ItemController {
      * @return  All items as an arrayList of item JSON objects.
      */
     @GetMapping("/Items")
-    public List<Item> getAllItems(){
+    public List<StockItem> getAllItems(){
         return service.getItems();
     }
 
     /**
-     * Returns the Item object with given itemId.
+     * Returns the StockItem object with given itemId.
      * URL : "http://localhost8080/getItemById/"
      * @param itemId as an input.
      * @return ResponseEntity with item information if found, or 404 if not found.
      * @throws if item object not found with given Id.
      */
     @GetMapping("/getItemById/{itemId}")
-    public ResponseEntity<Item> getItemById(@PathVariable(value = "itemId") int itemId) {
+    public ResponseEntity<StockItem> getItemById(@PathVariable(value = "itemId") int itemId) {
 
         try {
-            Item item = service.getItemById(itemId);
-            return new ResponseEntity<Item>(item, HttpStatus.OK);
+            StockItem stockItem = service.getItemById(itemId);
+            return new ResponseEntity<StockItem>(stockItem, HttpStatus.OK);
         }
         catch(Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -59,29 +59,29 @@ public class ItemController {
     }
 
     /**
-     * Creates the item object.
+     * Creates the stockItem object.
      * URL : "http://localhost8080/createItem"
-     * @param  item object as an input.
-     * @return  item JSON object.
+     * @param  stockItem object as an input.
+     * @return  stockItem JSON object.
      */
     @PostMapping("/createItem")
-    public Item createItem(@RequestBody Item item){
+    public StockItem createItem(@RequestBody StockItem stockItem){
 
-        return service.createItem(item);
+        return service.createItem(stockItem);
     }
 
     /**
-     * Updates the item object.
+     * Updates the stockItem object.
      * URL : "http://localhost8080/updateItem"
-     * @param  item object as an input.
-     * @return ResponseEntity with item information if updated, or 404 if not found.
-     * @throws  if item object not found.
+     * @param  stockItem object as an input.
+     * @return ResponseEntity with stockItem information if updated, or 404 if not found.
+     * @throws  if stockItem object not found.
      */
     @PutMapping("/updateItem")
-    public ResponseEntity<Item> updateItem(@RequestBody Item item){
+    public ResponseEntity<StockItem> updateItem(@RequestBody StockItem stockItem){
         try{
-            Item updatedItem = service.updateItem(item);
-            return new ResponseEntity<Item>(updatedItem,HttpStatus.OK);
+            StockItem updatedStockItem = service.updateItem(stockItem);
+            return new ResponseEntity<StockItem>(updatedStockItem,HttpStatus.OK);
         }
         catch(Exception e){
             return new ResponseEntity<>(HttpStatus.CONFLICT);

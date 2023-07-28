@@ -3,20 +3,20 @@ package com.customer.beans;
 import jakarta.persistence.*;
 
 /**
- * This class represents a Customer object with details like id, first_name, last_name, display_name, dob, age, email, phone number and address.
+ * This class represents a Customer object with details like inventoryId, quantity, lastStockDate, itemId, storeId.
  * It is a Java bean class with getters, setters, and a parameterized constructor for easy data access.
  *
  * Usage:
  * The Customer class can be used to store and retrieve information about a customer in the system.
  */
 @Entity
-@Table(name = "inventory")
-public class Inventory {
+@Table(name = "stock_inventory")
+public class StockInventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    Integer id;
+    @Column(name = "stock_inventory_id")
+    Integer inventoryId;
 
     @Column(name = "quantity")
     Integer quantity;
@@ -35,26 +35,26 @@ public class Inventory {
     /**
      * Parameterized constructor to create a Customer object with specified details.
      *
-     * @param id             The id of the inventory.
+     * @param inventoryId             The storeId of the inventory.
      * @param quantity       The quantity of items left in the inventory
      * @param lastStockDate  The date of last stock arrived in the inventory.
-     * @param itemId         The id's of the items present in the inventory.
-     * @param storeId        The id's of the stores that are using the inventory to store the items.
+     * @param itemId         The storeId's of the items present in the inventory.
+     * @param storeId        The storeId's of the stores that are using the inventory to store the items.
      */
-    public Inventory(Integer id, Integer quantity, String lastStockDate, Integer itemId, Integer storeId) {
-        this.id = id;
+    public StockInventory(Integer inventoryId, Integer quantity, String lastStockDate, Integer itemId, Integer storeId) {
+        this.inventoryId = inventoryId;
         this.quantity = quantity;
         this.lastStockDate = lastStockDate;
         this.itemId = itemId;
         this.storeId = storeId;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getInventoryId() {
+        return inventoryId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
     public Integer getQuantity() {

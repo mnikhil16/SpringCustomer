@@ -42,7 +42,7 @@ public class StoreService {
         List<Store> stores = storeRep.findAll();
         Store store = null;
         for(Store s: stores){
-            if(s.getId() == Id){
+            if(s.getStoreId() == Id){
                 store = s;
             }
         }
